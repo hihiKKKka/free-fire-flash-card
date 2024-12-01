@@ -1,0 +1,160 @@
+:root {
+    --card-front-color: #1c1c1c;
+    --card-back-color: #333333; 
+    --text-color: #ffffff;
+    --highlight-color: #d32f2f; 
+    --tema-color: #f44336; 
+    --green-theme: #00c853; 
+    --blue-theme: #1976d2;
+    --purple-theme: rgb(66, 3, 3);
+    --yellow-theme: #d10b0b; 
+    --neon-blue: #00d9ff; 
+    --neon-pink: #550303;
+    --button-bg-color: #443c3c;
+    --shadow-color: rgba(0, 0, 0, 0.8); 
+}
+
+body {
+    background: url(img/bg-desktop.webp); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+h1 {
+    text-align: center;
+    color: var(--highlight-color);
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin: 2rem 0;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 3rem 2rem;
+    gap: 2rem;
+    z-index: 2;
+}
+
+.cartao {
+    margin: 1rem;
+    height: 22rem;
+    flex-basis: calc(30% - 4rem);
+    perspective: 1200px;
+    transition: transform 0.6s ease, box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    transform: rotateY(10deg);
+}
+
+.cartao:hover {
+    transform: scale(1.05) rotateY(0deg);
+    box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.8);
+}
+
+.cartao__conteudo {
+    background-color: var(--card-front-color);
+    border: 3px solid var(--tema-color);
+    text-align: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+    border-radius: 15px;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.7);
+}
+
+.cartao__conteudo h3 {
+    color: var(--highlight-color);
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--tema-color);
+    text-align: left;
+    padding: 1rem;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+    backface-visibility: hidden;
+    font-weight: 700;
+    text-shadow: 0px 0px 15px var(--yellow-theme);
+}
+
+.cartao.active .cartao__conteudo {
+    transform: rotateY(180deg);
+}
+
+.cartao__conteudo__pergunta,
+.cartao__conteudo__resposta {
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    font-size: 1.3rem;
+}
+
+.cartao__conteudo__pergunta {
+    color: var(--text-color);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0px 0px 25px var(--neon-blue), 0px 0px 20px var(--neon-pink);
+}
+
+.cartao__conteudo__resposta {
+    transform: rotateY(180deg);
+    background-color: var(--card-back-color);
+    color: var(--highlight-color);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-shadow: 0px 0px 25px var(--highlight-color);
+}
+
+footer {
+    background-color: var(--purple-theme);
+    color: var(--yellow-theme);
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.5rem;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.8);
+    text-shadow: 0px 0px 20px var(--highlight-color);
+}
+
+#music-toggle {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--button-bg-color);
+    color: #ffffff;
+    border: none;
+    padding: 14px 22px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 100;
+}
+
+#music-toggle:hover {
+    background-color: #494949;
+    transform: scale(1.05);
+}
+
+#music-toggle:active {
+    transform: scale(0.98);
+}
